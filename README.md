@@ -8,6 +8,7 @@ www.hq-tech.co.kr의 홈, 회사 소개, FAQ, CSV 가이드 정적 사이트입�
 | 경로 | 내용 |
 | --- | --- |
 | `public/` | 배포되는 파일 전부. `index.html`, `about.html`, `faq.html`, `csv-guide.html`, `assets/`, `robots.txt`, `sitemap.xml`, `llms.txt` |
+| `api/consultations.js` | 상담 신청 접수 → NocoDB 저장 (환경 변수 `NOCODB_URL`, `NOCODB_TOKEN`, `NOCODB_TABLE_ID`) |
 | `vercel.json` | 깔끔한 주소(`/about`), 301 리다이렉트, 보안 헤더, 기존 앱으로 넘기는 규칙 |
 | `tools/check_site.py` | SEO·GEO 자동 점검 (푸시할 때마다 GitHub Actions에서 실행) |
 | `tools/serve.py` | 로컬 미리 보기 서버 (영상 재생 지원) |
@@ -17,8 +18,9 @@ www.hq-tech.co.kr의 홈, 회사 소개, FAQ, CSV 가이드 정적 사이트입�
 ## 요청이 처리되는 순서 (Vercel)
 
 1. `/case-studies` → `/` (301), `/news` → 블로그 규제뉴스 태그 (301)
-2. `public/`에 파일이 있으면 그 파일 (`/`, `/about`, `/faq`, `/csv-guide`, `/assets/hq-*`, `/llms.txt` 등)
-3. 그 밖의 모든 경로는 기존 앱(`hq-tech-2026.vercel.app`, Vercel 프로젝트 `hq-tech-2026`)으로 프록시. 주소창 URL은 그대로 유지
+2. `api/consultations` (상담 신청 POST) → NocoDB
+3. `public/`에 파일이 있으면 그 파일 (`/`, `/about`, `/faq`, `/csv-guide`, `/assets/hq-*`, `/llms.txt` 등)
+4. 그 밖의 모든 경로는 기존 앱(`hq-tech-2026.vercel.app`, Vercel 프로젝트 `hq-tech-2026`)으로 프록시. 주소창 URL은 그대로 유지
 
 ## 처음 한 번: 운영 연결
 
