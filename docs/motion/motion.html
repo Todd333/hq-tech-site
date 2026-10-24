@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>HQ-Tech 역량 모션</title>
+<style>
+:root{
+  --paper:#F4F8F7; --paper2:#E1EEEB; --ink:#102A2C; --ink2:#3D5759; --ink3:#6B8283;
+  --teal:#0D7C72; --teal2:#0D9488; --deep:#0E3437; --pulse:#E4795F; --line:rgba(16,42,44,.12);
+  --serif:"Noto Serif KR","Noto Serif CJK KR",serif;
+  --sans:"Pretendard","Noto Sans KR","Noto Sans CJK KR",sans-serif;
+  --mono:"IBM Plex Mono","Noto Sans Mono CJK KR","DejaVu Sans Mono",monospace;
+}
+html,body{margin:0;background:var(--paper)}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:radial-gradient(120% 90% at 50% 30%,#FFFFFF 0%,var(--paper) 55%,var(--paper2) 100%);perspective:1700px;perspective-origin:50% 38%;font-family:var(--sans);color:var(--ink)}
+#world{position:absolute;left:0;top:0;transform-style:preserve-3d}
+.floor{position:absolute;left:-3200px;top:-2400px;width:9000px;height:4200px;transform:translateZ(-1px);
+  background-image:linear-gradient(rgba(13,124,114,.10) 2px,transparent 2px),linear-gradient(90deg,rgba(13,124,114,.10) 2px,transparent 2px);
+  background-size:160px 160px;
+  -webkit-mask-image:radial-gradient(48% 50% at 42% 58%,#000 45%,transparent 100%);mask-image:radial-gradient(48% 50% at 42% 58%,#000 45%,transparent 100%)}
+.trace{position:absolute;left:0;top:18px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--teal2),var(--teal));transform-origin:0 50%;box-shadow:0 0 18px rgba(13,148,136,.55)}
+.node{position:absolute;top:9px;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:#fff;border:5px solid var(--teal2);box-sizing:border-box}
+.card{position:absolute;width:540px;height:600px;margin-left:-270px;top:-600px;transform-origin:50% 100%;transform-style:flat;
+  background:#fff;border:2px solid var(--line);border-radius:28px;box-shadow:0 30px 60px rgba(16,42,44,.18);overflow:hidden;display:flex;flex-direction:column}
+.card .band{height:12px;background:linear-gradient(90deg,var(--teal),var(--teal2) 70%,var(--pulse))}
+.card .body{flex:1;padding:42px 44px 36px;display:flex;flex-direction:column;gap:18px}
+.card .meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:22px;letter-spacing:.06em;color:var(--ink3)}
+.card .title{font-family:var(--sans);font-weight:800;font-size:56px;line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
+.card .title small{display:block;font-size:30px;font-weight:600;color:var(--teal);margin-top:10px;letter-spacing:0}
+.card .rule{height:2px;background:var(--line);margin:6px 0}
+.card .desc{font-family:var(--serif);font-weight:700;font-size:38px;line-height:1.35;color:var(--ink);word-break:keep-all}
+.card .rows{margin-top:auto;display:grid;gap:12px}
+.card .rows i{display:block;height:12px;border-radius:6px;background:var(--paper2)}
+.card .rows i:nth-child(2){width:78%}.card .rows i:nth-child(3){width:58%}
+.card .seal{position:absolute;right:30px;bottom:34px;width:150px;height:150px}
+.card.focus{border-color:var(--teal2)}
+#intro{position:absolute;left:120px;top:110px;display:grid;gap:22px}
+#intro .eb{font-family:var(--mono);font-size:26px;letter-spacing:.14em;color:var(--teal)}
+#intro h1{margin:0;font-family:var(--serif);font-weight:700;font-size:92px;line-height:1.18;color:var(--ink);letter-spacing:-.01em}
+#intro .pulse{display:inline-block;width:16px;height:16px;border-radius:50%;background:var(--pulse);box-shadow:0 0 0 10px rgba(228,121,90,.18);margin-right:16px;vertical-align:middle}
+#counter{position:absolute;left:120px;bottom:96px;font-family:var(--mono);font-size:26px;letter-spacing:.1em;color:var(--ink3);display:flex;gap:18px;align-items:center}
+#counter b{font-family:var(--sans);font-size:44px;color:var(--teal);letter-spacing:0}
+#endcard{position:absolute;inset:0;display:grid;justify-items:center;align-content:end;gap:26px;padding-bottom:150px;text-align:center;background:linear-gradient(180deg,rgba(244,248,247,0) 0%,rgba(244,248,247,0) 42%,rgba(244,248,247,.94) 56%,rgba(244,248,247,.98) 100%)}
+#endcard img{width:440px;height:auto}
+#endcard h2{margin:0;font-family:var(--serif);font-weight:700;font-size:76px;line-height:1.22;color:var(--ink)}
+#endcard h2 em{font-style:normal;color:var(--teal)}
+#endcard p{margin:0;font-family:var(--mono);font-size:26px;letter-spacing:.06em;color:var(--ink2)}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="world">
+    <div class="floor"></div>
+    <div class="trace" id="trace"></div>
+  </div>
+  <div id="intro"><span class="eb"><span class="pulse"></span>HQ-TECH · CAPABILITIES</span><h1>검증을 떠받치는<br>다섯 가지 기준</h1></div>
+  <div id="counter"><b id="cnum">01</b><span>/ 05</span><span id="cname"></span></div>
+  <div id="endcard"><img src="../assets/hq-logo-dark.webp" alt="HQ-Tech"><h2>다섯 가지 기준 위에서<br><em>검증</em>을 설계합니다</h2><p>GAMP 5 · 21 CFR PART 11 · PIC/S · EU ANNEX 11 · IQ·OQ·PQ · DATA INTEGRITY</p></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="seal" viewBox="0 0 100 100"><path id="rose" fill="#0D9488"/><circle cx="50" cy="50" r="34" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="2 4"/><text x="50" y="47" text-anchor="middle" font-family="IBM Plex Mono, DejaVu Sans Mono, monospace" font-weight="700" font-size="17" fill="#fff">PASS</text><text x="50" y="64" text-anchor="middle" font-family="IBM Plex Mono, DejaVu Sans Mono, monospace" font-size="9" fill="#fff" letter-spacing="1">VERIFIED</text></symbol>
+</svg>
+
+<script>
+// ---------- data ----------
+const CARDS = [
+  { title: 'GAMP 5', sub: '2nd Edition', desc: '위험 기반 검증 전략 수립', tag: 'ISPE GUIDE' },
+  { title: '21 CFR Part 11', sub: 'FDA', desc: '전자기록 · 전자서명 · Audit trail', tag: 'REGULATION' },
+  { title: 'PIC/S ·<br>EU Annex 11', name: 'PIC/S · EU Annex 11', sub: 'EU GMP', desc: '컴퓨터화 시스템 요건', tag: 'GUIDELINE' },
+  { title: 'IQ · OQ · PQ', sub: 'Qualification', desc: '적격성 평가 프로토콜 작성과 수행', tag: 'PROTOCOL' },
+  { title: 'Data Integrity', sub: 'ALCOA+', desc: 'ALCOA+ 원칙 기반 기록 검토', tag: 'RECORDS' },
+];
+const SP = 640;                 // spacing between cards along the floor
+const FOCUS = CARDS.map((_, i) => 2.7 + i * 1.75);   // time each card is centred
+const DUR = 14.5;
+
+// rosette path for the PASS seal
+(function () {
+  const cx = 50, cy = 50, ro = 49, ri = 43, n = 18, pts = n * 2, st = Math.PI * 2 / pts; let d = '';
+  for (let i = 0; i <= pts; i++) {
+    const a = i * st - Math.PI / 2, r = i % 2 ? ri : ro, x = cx + r * Math.cos(a), y = cy + r * Math.sin(a);
+    if (!i) { d = `M${x.toFixed(2)} ${y.toFixed(2)}`; continue; }
+    const pa = (i - .5) * st - Math.PI / 2, pr = (i % 2 ? ro : ri) + (ro - ri) * .55;
+    d += ` Q${(cx + pr * Math.cos(pa)).toFixed(2)} ${(cy + pr * Math.sin(pa)).toFixed(2)} ${x.toFixed(2)} ${y.toFixed(2)}`;
+  }
+  document.getElementById('rose').setAttribute('d', d + 'Z');
+})();
+
+// ---------- build cards ----------
+const world = document.getElementById('world');
+const els = CARDS.map((c, i) => {
+  const el = document.createElement('div');
+  el.className = 'card';
+  el.style.left = (i * SP) + 'px';
+  el.innerHTML = `<div class="band"></div><div class="body"><div class="meta"><span>0${i + 1} / 05</span><span>${c.tag}</span></div>
+    <div class="title">${c.title}<small>${c.sub}</small></div><div class="rule"></div><div class="desc">${c.desc}</div>
+    <div class="rows"><i></i><i></i><i></i></div></div><svg class="seal"><use href="#seal"/></svg>`;
+  world.appendChild(el);
+  const node = document.createElement('div'); node.className = 'node'; node.style.left = (i * SP) + 'px'; world.appendChild(node);
+  return { el, seal: el.querySelector('.seal') };
+});
+const trace = document.getElementById('trace');
+trace.style.width = (SP * (CARDS.length - 1)) + 'px';
+
+// ---------- easing ----------
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;   // easeInOutCubic
+const out = x => 1 - Math.pow(1 - x, 3);                                         // easeOutCubic
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+
+// camera keyframes: [t, camX, camZ, tilt, camY]
+const K = [[0, -420, -950, 68, 300], [2.1, 0, -60, 58, 330]];
+FOCUS.forEach((f, i) => { if (i) K.push([f - 0.35, i * SP, -60, 58, 330]); K.push([f + 0.55, i * SP, -60, 58, 330]); });
+K.push([11.6, 2 * SP, -2300, 50, -120], [DUR, 2 * SP, -2420, 50, -120]);
+function cam(t) {
+  for (let k = 0; k < K.length - 1; k++) {
+    const [t0, ...a] = K[k], [t1, ...b] = K[k + 1];
+    if (t <= t1) { const p = ease(prog(t, t0, t1)); return a.map((v, j) => v + (b[j] - v) * p); }
+  }
+  return K[K.length - 1].slice(1);
+}
+
+// ---------- render ----------
+function render(t) {
+  const [cx, cz, tilt, cy] = cam(t);
+  world.style.transform = `translate3d(960px, ${540 + cy}px, ${cz}px) rotateX(${tilt}deg) translateX(${-cx}px)`;
+
+  // trace line grows to the most recently lifted card
+  const reach = clamp((t - (FOCUS[0] - 0.4)) / (FOCUS[4] - FOCUS[0]));
+  trace.style.transform = `scaleX(${ease(reach)})`;
+  trace.style.opacity = t < FOCUS[0] - 0.5 ? 0 : 1;
+
+  let active = 0;
+  els.forEach(({ el, seal }, i) => {
+    const f = FOCUS[i];
+    const lift = out(prog(t, f - 1.0, f - 0.15));
+    const stand = -tilt * lift;                                   // stands up to face the camera
+    const hop = Math.sin(Math.PI * lift) * -40;                   // small lift off the floor
+    el.style.transform = `translateZ(${-hop}px) rotateX(${stand}deg)`;
+    const dist = Math.abs(i * SP - cx) / SP;
+    const endPhase = prog(t, 11.0, 11.8);
+    const blur = (1 - endPhase) * clamp(dist * 3.2, 0, 7) * (t > 2 ? 1 : 0.4);
+    el.style.filter = blur > 0.05 ? `blur(${blur.toFixed(2)}px)` : 'none';
+    el.classList.toggle('focus', dist < 0.35 && t < 11.2 && lift > 0.9);
+    const s = out(prog(t, f + 0.05, f + 0.45));
+    seal.style.transform = `scale(${s ? (0.6 + 0.4 * s + Math.sin(Math.PI * s) * 0.12) : 0}) rotate(${(-18 + 18 * s)}deg)`;
+    seal.style.opacity = s;
+    if (t >= f - 0.4) active = i;
+  });
+
+  // overlays
+  const intro = document.getElementById('intro');
+  const io = prog(t, 0.1, 0.6) * (1 - prog(t, 1.15, 1.6));
+  intro.style.opacity = io; intro.style.transform = `translateY(${(1 - prog(t, 0.1, 0.7)) * 24}px)`;
+
+  const counter = document.getElementById('counter');
+  counter.style.opacity = prog(t, 2.0, 2.4) * (1 - prog(t, 10.9, 11.4));
+  document.getElementById('cnum').textContent = '0' + (active + 1);
+  document.getElementById('cname').textContent = '· ' + (CARDS[active].name || CARDS[active].title).toUpperCase();
+
+  const end = document.getElementById('endcard');
+  const eo = prog(t, 11.7, 12.5);
+  end.style.opacity = eo; end.style.transform = `translateY(${(1 - out(eo)) * 30}px)`;
+}
+
+window.MOTION = {
+  width: 1920, height: 1080, duration: DUR, fps: 30,
+  async ready() { await document.fonts.ready; await Promise.all([...document.images].map(i => i.decode ? i.decode().catch(() => {}) : 0)); },
+  seek(t) { render(t); },
+};
+render(0);
+if (location.search.includes('preview')) {
+  const t0 = performance.now();
+  (function loop() { MOTION.seek(((performance.now() - t0) / 1000) % MOTION.duration); requestAnimationFrame(loop); })();
+}
+</script>
+</body>
+</html>

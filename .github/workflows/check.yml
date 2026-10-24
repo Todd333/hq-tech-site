@@ -1,0 +1,18 @@
+name: site-check
+on:
+  push:
+  pull_request:
+jobs:
+  seo-geo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 tools/check_site.py
+      - name: vercel.json legacy origin set
+        run: |
+          if grep -q "__LEGACY_ORIGIN__" vercel.json; then
+            echo "::warning::vercel.json의 __LEGACY_ORIGIN__을 기존 Vercel 프로젝트 주소로 바꾸기 전에는 www 도메인을 연결하지 마세요."
+          fi

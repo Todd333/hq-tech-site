@@ -1,0 +1,35 @@
+# HQ-Tech
+
+> HQ-Tech(주식회사 에이치큐테크)는 제약·바이오 기업을 위한 컴퓨터 시스템 밸리데이션(CSV)과 컴퓨터 소프트웨어 보증(CSA) 컨설팅 회사입니다. GAMP 5 위험 기반 접근으로 검증 전략을 세우고, VMP부터 IQ·OQ·PQ, 종결 보고서까지 실사에서 바로 제시할 수 있는 검증 문서를 작성합니다. 21 CFR Part 11, EU GMP Annex 11, PIC/S 요건 대응을 지원합니다.
+
+## 문의 · 컨설팅 의뢰
+
+CSV/CSA 컨설팅 의뢰와 문의는 아래 연락처 또는 상담 신청 페이지로 받습니다.
+
+- Tel: 031.8067.7870 (평일 09:00-18:00, 점심시간 12:00-13:00)
+- FAX: 0504.405.1742
+- 이메일: contact@hq-tech.co.kr
+- 상담 신청: [전문가 상담 신청](https://www.hq-tech.co.kr/consultation): 프로젝트 범위·일정·비용에 대한 무료 초기 상담
+- 주소: 경기도 화성시 병점노을4로 19 (골든스퀘어 원), 1315 (우편번호 18371)
+
+## 서비스
+
+- [FDA, EMA, MHRA Compliant](https://www.hq-tech.co.kr/services/compliance): 검증이 FDA, EMA, MHRA 및 기타 규제기관의 요구사항을 준수하도록 보장하고 최신 규제 동향을 반영합니다.
+- [Standard Validation Templates](https://www.hq-tech.co.kr/services/templates): 검증 계획서, 요구사항 명세서 등 표준 소프트웨어 검증 템플릿 세트를 제공해 프로젝트 시간을 단축합니다.
+- [Proven Validation Methodology](https://www.hq-tech.co.kr/services/methodology): FDA, EMA, MHRA 요구사항을 충족하는 맞춤형 위험 기반 검증 접근법입니다.
+- [CSV and CSA Expertise](https://www.hq-tech.co.kr/services/expertise): 경험 많은 소프트웨어 검증 매니저와 엔지니어가 CSV와 CSA 전반을 지원합니다.
+
+## 페이지
+
+- [홈](https://www.hq-tech.co.kr/): CSV 전통 검증과 CSA 위험 기반 보증 프로그램, 검증 수명주기 8단계, 검증 패키지 8종 문서, 자주 묻는 질문
+- [회사 소개](https://www.hq-tech.co.kr/about): 미션, 일하는 원칙, 서비스 분야와 대응 규제, 회사 정보
+- [CSV 기본 개념](https://www.hq-tech.co.kr/csv-guide): CSV 정의와 필요성, Part 11·Annex 11·GAMP 5·FDA CSA, ALCOA+ 9원칙, GAMP 카테고리, V-모델, 핵심 산출물, CSV와 CSA 비교
+- [자주 묻는 질문](https://www.hq-tech.co.kr/faq): CSV, CSA, GAMP 5, Annex 11, 데이터 무결성, 기간, 비용 관련 10문항
+- [전문가 상담](https://www.hq-tech.co.kr/consultation): CSV 전문가 상담 신청 (무료 초기 상담)
+- [규제 뉴스](https://blog.hq-tech.co.kr/tag/reg-news/): FDA, EMA, MHRA 등 규제 동향 정리 (HQ-Tech 블로그)
+- [이용약관](https://www.hq-tech.co.kr/terms)
+- [개인정보처리방침](https://www.hq-tech.co.kr/privacy)
+
+## Optional
+
+- [블로그](https://blog.hq-tech.co.kr)

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "installCommand": "",
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/case-studies", "destination": "/", "statusCode": 301 },
+    { "source": "/case-studies/:path*", "destination": "/", "statusCode": 301 },
+    { "source": "/news", "destination": "https://blog.hq-tech.co.kr/tag/reg-news/", "statusCode": 301 },
+    { "source": "/news/:path*", "destination": "https://blog.hq-tech.co.kr/tag/reg-news/", "statusCode": 301 },
+    { "source": "/llms-full.txt", "destination": "/llms.txt", "statusCode": 302 }
+  ],
+  "rewrites": [
+    { "source": "/:path*", "destination": "https://__LEGACY_ORIGIN__/:path*" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/assets/hq-(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
+    }
+  ]
+}
