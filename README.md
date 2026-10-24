@@ -13,7 +13,7 @@ www.hq-tech.co.kr의 홈, 회사 소개, FAQ, CSV 가이드 정적 사이트입�
 | `tools/check_site.py` | SEO·GEO 자동 점검 (푸시할 때마다 GitHub Actions에서 실행) |
 | `tools/serve.py` | 로컬 미리 보기 서버 (영상 재생 지원) |
 | `backlog.json` | 남은 일과 결정 사항 |
-| `docs/` | 설계·비교 기록(NOTES), 하위 페이지 변경표(SUBPAGES), 모션 영상 원본, 이전 버전 보관 |
+| `docs/` | 작업 로그(WORKLOG-2026-10-24), 설계·비교 기록(NOTES), 하위 페이지 변경표(SUBPAGES), 모션 영상 원본, 이전 버전 보관 |
 
 ## 요청이 처리되는 순서 (Vercel)
 
