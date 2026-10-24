@@ -9,67 +9,197 @@
     "decision": "대표 결정 필요"
   },
   "items": [
-    {"id": "REL-01", "priority": "P0", "status": "todo", "owner": "Todd", "area": "배포",
-     "title": "Vercel에 새 프로젝트 연결",
-     "detail": "Vercel → Add New → Project → Todd333/hq-tech-site 가져오기. Framework Preset은 Other, 빌드 명령 없음(vercel.json이 설정). 이후 main에 푸시할 때마다 자동 배포."},
-    {"id": "REL-02", "priority": "P0", "status": "blocked", "owner": "Todd", "area": "배포",
-     "title": "기존 React 앱 주소를 vercel.json에 넣기",
-     "detail": "기존 Vercel 프로젝트의 기본 주소(예: xxxx.vercel.app)를 vercel.json의 __LEGACY_ORIGIN__ 자리에 넣어야 /consultation, /services/*, /terms, /privacy, /api/*, favicon, og-image가 계속 동작함. 넣기 전에는 www 도메인을 옮기지 말 것."},
-    {"id": "REL-03", "priority": "P0", "status": "todo", "owner": "Todd", "area": "배포",
-     "title": "미리보기 주소에서 확인 후 도메인 이전",
-     "detail": "새 프로젝트 미리보기 주소에서 홈·회사 소개·FAQ·CSV 가이드·상담 신청(폼 제출 포함)을 확인한 뒤, 기존 프로젝트 Settings → Domains에서 www.hq-tech.co.kr(와 hq-tech.co.kr)를 제거하고 새 프로젝트에 추가."},
-    {"id": "REL-04", "priority": "P0", "status": "done", "owner": "Claude", "area": "배포",
-     "title": "롤백 경로 확보",
-     "detail": "기존 Vercel 프로젝트와 그 소스 저장소는 손대지 않음. 롤백은 도메인을 기존 프로젝트로 되돌리면 즉시 복구(README '롤백' 참고). 새 프로젝트 안에서의 롤백은 Vercel Instant Rollback 또는 git revert."},
-    {"id": "REL-05", "priority": "P1", "status": "todo", "owner": "Todd", "area": "SEO",
-     "title": "Search Console에 sitemap 다시 제출, 주요 4개 URL 색인 요청",
-     "detail": "도메인 이전 직후 / , /about, /faq, /csv-guide 색인 요청. /case-studies, /news는 301로 정리됨."},
-
-    {"id": "LEG-01", "priority": "P1", "status": "todo", "owner": "Todd", "area": "기존 앱 정리",
-     "title": "기존 React 앱의 메뉴·로고 링크를 전체 새로고침 링크로",
-     "detail": "상담 신청 등 기존 앱 화면에서 로고나 메뉴를 누르면 React 라우터가 화면 안에서 옛 홈·회사 소개를 그릴 수 있음. 해당 링크를 <a href>로 바꾸거나 메뉴를 새 사이트와 맞출 것."},
-    {"id": "LEG-02", "priority": "P1", "status": "todo", "owner": "Todd", "area": "기존 앱 정리",
-     "title": "기존 앱 공통 head·푸터에서 SNS(sameAs, 아이콘) 삭제",
-     "detail": "SNS 계정은 운영하지 않음."},
-    {"id": "LEG-03", "priority": "P2", "status": "todo", "owner": "Todd", "area": "기존 앱 정리",
-     "title": "관리자 화면의 사례·뉴스 등록 기능과 /api/case-studies, /api/news 정리",
-     "detail": "두 API는 2026-10-24 기준 500(fetch failed). 화면을 쓰지 않으므로 제거."},
-    {"id": "LEG-04", "priority": "P2", "status": "todo", "owner": "Todd", "area": "기존 앱 정리",
-     "title": "기존 앱 llms-full.txt 갱신 또는 삭제",
-     "detail": "새 사이트는 /llms-full.txt를 /llms.txt로 임시 이동(302) 처리함."},
-
-    {"id": "CNT-01", "priority": "P1", "status": "decision", "owner": "Todd", "area": "콘텐츠",
-     "title": "FAQ 사실관계 수정 승인",
-     "detail": "CSA 최종 가이던스(2025-09-24), Annex 11 정의, GAMP 카테고리 2 폐지, ALCOA+ 표현, 재검증 기준. 표는 docs/SUBPAGES.md."},
-    {"id": "CNT-02", "priority": "P1", "status": "decision", "owner": "Todd", "area": "콘텐츠",
-     "title": "검증 수명주기 PHASE 07 '정기 리뷰·변경관리'와 섹션 제목 '그 이후의 변경관리까지' 유지 여부",
-     "detail": "사후 지원 서비스를 빼기로 했으므로, 사후 지원을 약속하는 것처럼 읽히는지 판단 필요."},
-    {"id": "CNT-03", "priority": "P2", "status": "blocked", "owner": "Todd", "area": "콘텐츠",
-     "title": "수치 근거 확인 (50+, 99.9% 등)",
-     "detail": "근거 자료가 있으면 유지, 없으면 표현 조정."},
-    {"id": "CNT-04", "priority": "P2", "status": "blocked", "owner": "Todd", "area": "콘텐츠",
-     "title": "대표 사진·이름, 실제 고객 인용, 고객사 로고",
-     "detail": "고객사 실명·로고는 사전 승인 후에만 게재."},
-    {"id": "CNT-05", "priority": "P2", "status": "todo", "owner": "Claude", "area": "디자인",
-     "title": "og-image 새 디자인",
-     "detail": "현재는 기존 앱의 /og-image.png를 그대로 사용(프록시)."},
-    {"id": "CNT-06", "priority": "P3", "status": "decision", "owner": "Todd", "area": "디자인",
-     "title": "로그인 메뉴 노출 여부", "detail": ""},
-    {"id": "CNT-07", "priority": "P3", "status": "decision", "owner": "Todd", "area": "서비스",
-     "title": "진단·상시 지원, 교육·사후 지원 서비스 재도입 시점",
-     "detail": "2026-10-24 준비되지 않아 홈에서 뺌. 준비되면 프로그램 카드와 참여 방식 카드를 되살릴 수 있음(빼기 전 홈 원본: docs/archive/home-with-support-services-2026-10-24.html)."},
-
-    {"id": "DONE-01", "priority": "-", "status": "done", "owner": "Claude", "area": "디자인",
-     "title": "krackerz.com 구성·인터랙션을 참고한 홈 재디자인, 환자 생명 존중 색·서체"},
-    {"id": "DONE-02", "priority": "-", "status": "done", "owner": "Claude", "area": "콘텐츠",
-     "title": "회사 소개·FAQ·CSV 가이드 개편, 도입사례 제외, 규제 뉴스를 블로그로 연결, SNS 제거"},
-    {"id": "DONE-03", "priority": "-", "status": "done", "owner": "Claude", "area": "디자인",
-     "title": "프로그램 카드 겹침 스크롤, 상담 신청 버튼 보강, 히어로 문구를 방문자 상황으로"},
-    {"id": "DONE-04", "priority": "-", "status": "done", "owner": "Claude", "area": "디자인",
-     "title": "다섯 가지 기준 3D 모션 영상(MP4·WebM·포스터), 일시정지 버튼, VideoObject"},
-    {"id": "DONE-05", "priority": "-", "status": "done", "owner": "Claude", "area": "콘텐츠",
-     "title": "진단·상시 지원 카드, 교육·사후 지원 프로그램, 사후 지원 FAQ 제외"},
-    {"id": "DONE-06", "priority": "-", "status": "done", "owner": "Claude", "area": "SEO",
-     "title": "SEO·GEO 최종 점검 통과, llms.txt 새로 작성, /case-studies·/news 301, 자동 점검(GitHub Actions)"}
+    {
+      "id": "REL-01",
+      "priority": "P0",
+      "status": "todo",
+      "owner": "Todd",
+      "area": "배포",
+      "title": "Vercel에 새 프로젝트 연결",
+      "detail": "Vercel → Add New → Project → Todd333/hq-tech-site 가져오기. Framework Preset은 Other, 빌드 명령 없음(vercel.json이 설정). 이후 main에 푸시할 때마다 자동 배포."
+    },
+    {
+      "id": "REL-02",
+      "priority": "P0",
+      "status": "done",
+      "owner": "Todd",
+      "area": "배포",
+      "title": "기존 React 앱 주소를 vercel.json에 넣기",
+      "detail": "기존 운영 프로젝트는 Vercel 개인 계정의 hq-tech-2026 (저장소 Todd333/HQ-Tech-2026-Merge). 운영 번들(index-BC8CdYit.js)이 hq-tech-2026.vercel.app과 일치함을 2026-10-24 확인. vercel.json 프록시 대상으로 설정함."
+    },
+    {
+      "id": "REL-03",
+      "priority": "P0",
+      "status": "todo",
+      "owner": "Todd",
+      "area": "배포",
+      "title": "미리보기 주소에서 확인 후 도메인 이전",
+      "detail": "새 프로젝트 미리보기 주소에서 홈·회사 소개·FAQ·CSV 가이드·상담 신청(폼 제출 포함)을 확인한 뒤, 기존 프로젝트 Settings → Domains에서 www.hq-tech.co.kr(와 hq-tech.co.kr)를 제거하고 새 프로젝트에 추가."
+    },
+    {
+      "id": "REL-04",
+      "priority": "P0",
+      "status": "done",
+      "owner": "Claude",
+      "area": "배포",
+      "title": "롤백 경로 확보",
+      "detail": "기존 Vercel 프로젝트와 그 소스 저장소는 손대지 않음. 롤백은 도메인을 기존 프로젝트로 되돌리면 즉시 복구(README '롤백' 참고). 새 프로젝트 안에서의 롤백은 Vercel Instant Rollback 또는 git revert."
+    },
+    {
+      "id": "REL-05",
+      "priority": "P1",
+      "status": "todo",
+      "owner": "Todd",
+      "area": "SEO",
+      "title": "Search Console에 sitemap 다시 제출, 주요 4개 URL 색인 요청",
+      "detail": "도메인 이전 직후 / , /about, /faq, /csv-guide 색인 요청. /case-studies, /news는 301로 정리됨."
+    },
+    {
+      "id": "LEG-01",
+      "priority": "P1",
+      "status": "todo",
+      "owner": "Todd",
+      "area": "기존 앱 정리",
+      "title": "기존 React 앱의 메뉴·로고 링크를 전체 새로고침 링크로",
+      "detail": "상담 신청 등 기존 앱 화면에서 로고나 메뉴를 누르면 React 라우터가 화면 안에서 옛 홈·회사 소개를 그릴 수 있음. 해당 링크를 <a href>로 바꾸거나 메뉴를 새 사이트와 맞출 것."
+    },
+    {
+      "id": "LEG-02",
+      "priority": "P1",
+      "status": "todo",
+      "owner": "Todd",
+      "area": "기존 앱 정리",
+      "title": "기존 앱 공통 head·푸터에서 SNS(sameAs, 아이콘) 삭제",
+      "detail": "SNS 계정은 운영하지 않음."
+    },
+    {
+      "id": "LEG-03",
+      "priority": "P2",
+      "status": "todo",
+      "owner": "Todd",
+      "area": "기존 앱 정리",
+      "title": "관리자 화면의 사례·뉴스 등록 기능과 /api/case-studies, /api/news 정리",
+      "detail": "두 API는 2026-10-24 기준 500(fetch failed). 화면을 쓰지 않으므로 제거."
+    },
+    {
+      "id": "LEG-04",
+      "priority": "P2",
+      "status": "todo",
+      "owner": "Todd",
+      "area": "기존 앱 정리",
+      "title": "기존 앱 llms-full.txt 갱신 또는 삭제",
+      "detail": "새 사이트는 /llms-full.txt를 /llms.txt로 임시 이동(302) 처리함."
+    },
+    {
+      "id": "CNT-01",
+      "priority": "P1",
+      "status": "decision",
+      "owner": "Todd",
+      "area": "콘텐츠",
+      "title": "FAQ 사실관계 수정 승인",
+      "detail": "CSA 최종 가이던스(2025-09-24), Annex 11 정의, GAMP 카테고리 2 폐지, ALCOA+ 표현, 재검증 기준. 표는 docs/SUBPAGES.md."
+    },
+    {
+      "id": "CNT-02",
+      "priority": "P1",
+      "status": "decision",
+      "owner": "Todd",
+      "area": "콘텐츠",
+      "title": "검증 수명주기 PHASE 07 '정기 리뷰·변경관리'와 섹션 제목 '그 이후의 변경관리까지' 유지 여부",
+      "detail": "사후 지원 서비스를 빼기로 했으므로, 사후 지원을 약속하는 것처럼 읽히는지 판단 필요."
+    },
+    {
+      "id": "CNT-03",
+      "priority": "P2",
+      "status": "blocked",
+      "owner": "Todd",
+      "area": "콘텐츠",
+      "title": "수치 근거 확인 (50+, 99.9% 등)",
+      "detail": "근거 자료가 있으면 유지, 없으면 표현 조정."
+    },
+    {
+      "id": "CNT-04",
+      "priority": "P2",
+      "status": "blocked",
+      "owner": "Todd",
+      "area": "콘텐츠",
+      "title": "대표 사진·이름, 실제 고객 인용, 고객사 로고",
+      "detail": "고객사 실명·로고는 사전 승인 후에만 게재."
+    },
+    {
+      "id": "CNT-05",
+      "priority": "P2",
+      "status": "todo",
+      "owner": "Claude",
+      "area": "디자인",
+      "title": "og-image 새 디자인",
+      "detail": "현재는 기존 앱의 /og-image.png를 그대로 사용(프록시)."
+    },
+    {
+      "id": "CNT-06",
+      "priority": "P3",
+      "status": "decision",
+      "owner": "Todd",
+      "area": "디자인",
+      "title": "로그인 메뉴 노출 여부",
+      "detail": ""
+    },
+    {
+      "id": "CNT-07",
+      "priority": "P3",
+      "status": "decision",
+      "owner": "Todd",
+      "area": "서비스",
+      "title": "진단·상시 지원, 교육·사후 지원 서비스 재도입 시점",
+      "detail": "2026-10-24 준비되지 않아 홈에서 뺌. 준비되면 프로그램 카드와 참여 방식 카드를 되살릴 수 있음(빼기 전 홈 원본: docs/archive/home-with-support-services-2026-10-24.html)."
+    },
+    {
+      "id": "DONE-01",
+      "priority": "-",
+      "status": "done",
+      "owner": "Claude",
+      "area": "디자인",
+      "title": "krackerz.com 구성·인터랙션을 참고한 홈 재디자인, 환자 생명 존중 색·서체"
+    },
+    {
+      "id": "DONE-02",
+      "priority": "-",
+      "status": "done",
+      "owner": "Claude",
+      "area": "콘텐츠",
+      "title": "회사 소개·FAQ·CSV 가이드 개편, 도입사례 제외, 규제 뉴스를 블로그로 연결, SNS 제거"
+    },
+    {
+      "id": "DONE-03",
+      "priority": "-",
+      "status": "done",
+      "owner": "Claude",
+      "area": "디자인",
+      "title": "프로그램 카드 겹침 스크롤, 상담 신청 버튼 보강, 히어로 문구를 방문자 상황으로"
+    },
+    {
+      "id": "DONE-04",
+      "priority": "-",
+      "status": "done",
+      "owner": "Claude",
+      "area": "디자인",
+      "title": "다섯 가지 기준 3D 모션 영상(MP4·WebM·포스터), 일시정지 버튼, VideoObject"
+    },
+    {
+      "id": "DONE-05",
+      "priority": "-",
+      "status": "done",
+      "owner": "Claude",
+      "area": "콘텐츠",
+      "title": "진단·상시 지원 카드, 교육·사후 지원 프로그램, 사후 지원 FAQ 제외"
+    },
+    {
+      "id": "DONE-06",
+      "priority": "-",
+      "status": "done",
+      "owner": "Claude",
+      "area": "SEO",
+      "title": "SEO·GEO 최종 점검 통과, llms.txt 새로 작성, /case-studies·/news 301, 자동 점검(GitHub Actions)"
+    }
   ]
 }

@@ -14,7 +14,7 @@
     { "source": "/llms-full.txt", "destination": "/llms.txt", "statusCode": 302 }
   ],
   "rewrites": [
-    { "source": "/:path*", "destination": "https://__LEGACY_ORIGIN__/:path*" }
+    { "source": "/:path*", "destination": "https://hq-tech-2026.vercel.app/:path*" }
   ],
   "headers": [
     {

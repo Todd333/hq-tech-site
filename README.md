@@ -18,7 +18,7 @@ www.hq-tech.co.kr의 홈, 회사 소개, FAQ, CSV 가이드 정적 사이트입�
 
 1. `/case-studies` → `/` (301), `/news` → 블로그 규제뉴스 태그 (301)
 2. `public/`에 파일이 있으면 그 파일 (`/`, `/about`, `/faq`, `/csv-guide`, `/assets/hq-*`, `/llms.txt` 등)
-3. 그 밖의 모든 경로는 기존 앱(`__LEGACY_ORIGIN__`)으로 프록시. 주소창 URL은 그대로 유지
+3. 그 밖의 모든 경로는 기존 앱(`hq-tech-2026.vercel.app`, Vercel 프로젝트 `hq-tech-2026`)으로 프록시. 주소창 URL은 그대로 유지
 
 ## 처음 한 번: 운영 연결
 
