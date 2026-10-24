@@ -10,6 +10,15 @@
   },
   "items": [
     {
+      "id": "OPS-01",
+      "priority": "P0",
+      "status": "todo",
+      "owner": "Todd",
+      "area": "운영 장애",
+      "title": "상담 신청 폼 장애: 기존 앱 백엔드의 Supabase 연결 실패",
+      "detail": "2026-10-24 확인. 기존 앱(hq-tech-2026.vercel.app)에 직접 요청해도 /api/consultations, /api/experts, /api/news, /api/case-studies 모두 500 'TypeError: fetch failed'. Supabase 프로젝트(skavexjdbnzpuxmsszuj.supabase.co) 주소에 접속 불가(일시정지 또는 삭제 추정). 새 사이트 전환 이전부터 있던 장애. 조치: Supabase 대시보드에서 프로젝트 복구(Restore) 후 폼 재시험. 복구 전까지 상담 페이지에 전화·이메일 안내 필요."
+    },
+    {
       "id": "REL-01",
       "priority": "P0",
       "status": "done",
