@@ -1,7 +1,7 @@
 {
   "project": "www.hq-tech.co.kr 홈·하위 페이지 개편",
   "updated": "2026-10-24",
-  "release": "v2026.10.24",
+  "release": "v2026.10.24 (운영 반영 2026-10-24 16:26)",
   "status_legend": {
     "done": "완료",
     "todo": "할 일",
@@ -12,11 +12,11 @@
     {
       "id": "REL-01",
       "priority": "P0",
-      "status": "todo",
+      "status": "done",
       "owner": "Todd",
       "area": "배포",
       "title": "Vercel에 새 프로젝트 연결",
-      "detail": "Vercel → Add New → Project → Todd333/hq-tech-site 가져오기. Framework Preset은 Other, 빌드 명령 없음(vercel.json이 설정). 이후 main에 푸시할 때마다 자동 배포."
+      "detail": "Vercel → Add New → Project → Todd333/hq-tech-site 가져오기. Framework Preset은 Other, 빌드 명령 없음(vercel.json이 설정). 이후 main에 푸시할 때마다 자동 배포. → 2026-10-24 Vercel 프로젝트 hq-tech-site 생성(개인 계정 toddcho333-9670)."
     },
     {
       "id": "REL-02",
@@ -30,11 +30,11 @@
     {
       "id": "REL-03",
       "priority": "P0",
-      "status": "todo",
+      "status": "done",
       "owner": "Todd",
       "area": "배포",
       "title": "미리보기 주소에서 확인 후 도메인 이전",
-      "detail": "새 프로젝트 미리보기 주소에서 홈·회사 소개·FAQ·CSV 가이드·상담 신청(폼 제출 포함)을 확인한 뒤, 기존 프로젝트 Settings → Domains에서 www.hq-tech.co.kr(와 hq-tech.co.kr)를 제거하고 새 프로젝트에 추가."
+      "detail": "새 프로젝트 미리보기 주소에서 홈·회사 소개·FAQ·CSV 가이드·상담 신청(폼 제출 포함)을 확인한 뒤, 기존 프로젝트 Settings → Domains에서 www.hq-tech.co.kr(와 hq-tech.co.kr)를 제거하고 새 프로젝트에 추가. → 2026-10-24 16:26 이전 완료. www=Production, apex=308→www. 운영 주소에서 18개 경로 확인."
     },
     {
       "id": "REL-04",
@@ -53,6 +53,15 @@
       "area": "SEO",
       "title": "Search Console에 sitemap 다시 제출, 주요 4개 URL 색인 요청",
       "detail": "도메인 이전 직후 / , /about, /faq, /csv-guide 색인 요청. /case-studies, /news는 301로 정리됨."
+    },
+    {
+      "id": "REL-06",
+      "priority": "P2",
+      "status": "todo",
+      "owner": "Todd",
+      "area": "배포",
+      "title": "Vercel 'DNS Change Recommended' 정리",
+      "detail": "hq-tech.co.kr, www.hq-tech.co.kr에 표시. 사이트는 정상 동작. 도메인 업체 DNS를 Vercel 'View DNS configuration'의 권장 값으로 바꾸면 사라짐."
     },
     {
       "id": "LEG-01",
